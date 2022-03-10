@@ -5,12 +5,12 @@ package com.maestrosdeluniverso;
  * 
  */
 
- //TO DO: Interficie gràfica
- //TO DO: Classe camell
+ //TODO: Interficie gràfica
+ //TODO: Classe camell
  //      -Moviment aleatori
  //         - S'ha de moure
  //         - Quant s'ha de moure (1..15)
- //TO DO: Classe carrera
+ //TODO: Classe carrera
  //      - Torns
  //      - Guanyador
  //         - Desempat
