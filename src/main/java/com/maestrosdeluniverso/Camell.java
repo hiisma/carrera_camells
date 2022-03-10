@@ -39,9 +39,9 @@ public class Camell {
 
     /**
      * Constructor amb identifiació, la posició
-     * s'inicialitza 
-     * Tamb
-     * @param id
+     * s'inicialitza a 0.
+     * També genera la llavor de Random.
+     * @param id Identificació del camell.
      */
     Camell(int id) {
         posicio = 0;
