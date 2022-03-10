@@ -3,6 +3,10 @@ package com.maestrosdeluniverso;
 /**
  * Carrera de camells
  * 
+ * @author Ismail
+ * @author Pau
+ * @author Aleix
+ * @author Arnau
  */
 
  //TODO: Interficie gràfica
@@ -14,6 +18,7 @@ package com.maestrosdeluniverso;
  //      - Torns x
  //      - Guanyador x
  //         - Desempat x
+ //      - Algo más?
 
 public class App 
 {

@@ -2,11 +2,18 @@ package com.maestrosdeluniverso;
 
 import java.util.ArrayList;
 
+/**
+ * Clase carrera per manejar el curs de la cursa 
+ * @author Arnau
+ */
 public class Carrera {
 
     private int Torn;
     private int Guanyador;
 
+    /**
+     * Constructor clase Carrera
+     */
     public Carrera() {
 
         this.Torn = 0;
@@ -31,6 +38,10 @@ public class Carrera {
     }
 
     // TODO : cambiar void por clase Camell
+    /**
+     * Mètode per solucionar el problema de que hi hagin 2 o mès guanyadors de la cursa
+     * @param camells Array d'objectes "Camell" guanyadors al torn final
+     */
     public void Desempat(Camell[] camells) {
 
         ArrayList<Camell> guanyadors = new ArrayList<>();
