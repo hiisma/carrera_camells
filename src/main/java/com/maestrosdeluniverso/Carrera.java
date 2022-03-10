@@ -29,7 +29,7 @@ public class Carrera {
     }    
 
     //TODO : cambiar void por clase Camell
-    public void Desempat(Camell[] P1, ) {
+    public void Desempat(Camell[] P1) {
         
     }
     // array camellos posicion +500 add guanyadors
