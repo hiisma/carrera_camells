@@ -30,7 +30,7 @@ public class Carrera {
         this.Torn = torn;
     }
 
-    // TODO : cambiar void por clase Camell
+    // TO DO : cambiar void por clase Camell
     public void Desempat(Camell[] P1) {
 
         ArrayList<Camell> guanyadors = new ArrayList<>();
@@ -56,7 +56,7 @@ public class Carrera {
             }
         }
 
-        // TODO: descomentar el return
+        // TO DO: descomentar el return
         // return guanyadors[0];
     }
     // array camellos posicion +500 add guanyadors
