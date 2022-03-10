@@ -11,9 +11,9 @@ package com.maestrosdeluniverso;
  //         - S'ha de moure
  //         - Quant s'ha de moure (1..15)
  //TODO: Classe carrera
- //      - Torns
- //      - Guanyador
- //         - Desempat
+ //      - Torns x
+ //      - Guanyador x
+ //         - Desempat x
 
 public class App 
 {

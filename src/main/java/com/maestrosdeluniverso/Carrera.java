@@ -5,20 +5,20 @@ import java.util.ArrayList;
 public class Carrera {
 
     private int Torn;
-    private String Guanyador;
+    private int Guanyador;
 
     public Carrera() {
 
-        this.setTorn(0);
-        this.setGuanyador("No ha acabat la carrera");
+        this.Torn = 0;
+        this.Guanyador = 0;
 
     }
 
-    public String getGuanyador() {
+    public int getGuanyador() {
         return Guanyador;
     }
 
-    public void setGuanyador(String guanyador) {
+    public void setGuanyador(int guanyador) {
         this.Guanyador = guanyador;
     }
 
@@ -30,14 +30,14 @@ public class Carrera {
         this.Torn = torn;
     }
 
-    // TO DO : cambiar void por clase Camell
-    public void Desempat(Camell[] P1) {
+    // TODO : cambiar void por clase Camell
+    public void Desempat(Camell[] camells) {
 
         ArrayList<Camell> guanyadors = new ArrayList<>();
 
         int pMax = 0;
 
-        for (Camell i : P1) {
+        for (Camell i : camells) {
             if (i.getPosicio() > 500) {
 
                 guanyadors.add(i);
@@ -45,7 +45,7 @@ public class Carrera {
                 if (i.getPosicio() > pMax) {
 
                     pMax = i.getPosicio();
-                
+
                 }
             }
         }
@@ -56,9 +56,10 @@ public class Carrera {
             }
         }
 
-        // TO DO: descomentar el return
-        // return guanyadors[0];
+        this.setGuanyador(guanyadors.get(0).getId());
+
+        // TODO: descomentar el return
+        // return guanyadors.get(0);
     }
-    // array camellos posicion +500 add guanyadors
 
 }
