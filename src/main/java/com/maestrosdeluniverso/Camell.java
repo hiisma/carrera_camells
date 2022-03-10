@@ -37,6 +37,12 @@ public class Camell {
         r = new Random();
     }
 
+    /**
+     * Constructor amb identifiació, la posició
+     * s'inicialitza 
+     * Tamb
+     * @param id
+     */
     Camell(int id) {
         posicio = 0;
         this.id = id;
