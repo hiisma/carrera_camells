@@ -30,6 +30,7 @@ public class Pista {
         pantalla = c;
         camells = new ArrayList<Camell>();
         
+        
     }
 
 }
