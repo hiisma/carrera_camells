@@ -7,8 +7,8 @@ import java.util.Random;
  * el moviment.
  */
 public class Camell {
-    private int posicio;
-    private int id;
+    protected int posicio;
+    protected int id;
     private Random r;
 
     // Constants.
