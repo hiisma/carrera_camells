@@ -42,7 +42,7 @@ public class Carrera {
      * Mètode per solucionar el problema de que hi hagin 2 o mès guanyadors de la cursa
      * @param camells Array d'objectes "Camell" guanyadors al torn final
      */
-    public void Desempat(Camell[] camells) {
+    public Camell Desempat(Camell[] camells) {
 
         ArrayList<Camell> guanyadors = new ArrayList<>();// Emmagatzemar els guanyadors de la cursa per anar descartant amb els "filtres"
 
@@ -75,7 +75,7 @@ public class Carrera {
 
         // TODO: descomentar el return
         //retorna el camell guanyador
-        // return guanyadors.get(0);
+        return guanyadors.get(0);
     }
 
 }
