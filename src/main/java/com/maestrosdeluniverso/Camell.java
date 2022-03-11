@@ -3,7 +3,8 @@ package com.maestrosdeluniverso;
 import java.util.Random;
 
 /**
- * Classe camell que,
+ * Classe camell que permet manejar
+ * el moviment.
  */
 public class Camell {
     private int posicio;
@@ -11,8 +12,12 @@ public class Camell {
     private Random r;
 
     // Constants.
+    /**
+     * Desplaçament màxim que pot realitzar el camell.
+     */
     public static final int DESPL_MAXIM = 15;
 
+    // Constructors
     /**
      * Constructor per defecte
      * de la classe camell.
