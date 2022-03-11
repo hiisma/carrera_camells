@@ -3,17 +3,22 @@ package com.maestrosdeluniverso;
 /**
  * Carrera de camells
  * 
+ * @author Ismail
+ * @author Pau
+ * @author Aleix
+ * @author Arnau
  */
 
- //TO DO: Interficie gràfica
- //TO DO: Classe camell
+ //TODO: Interficie gràfica
+ //TODO: Classe camell
  //      -Moviment aleatori
  //         - S'ha de moure
  //         - Quant s'ha de moure (1..15)
- //TO DO: Classe carrera
- //      - Torns
- //      - Guanyador
- //         - Desempat
+ //TODO: Classe carrera
+ //      - Torns x
+ //      - Guanyador x
+ //         - Desempat x
+ //      - Algo más?
 
 public class App 
 {
