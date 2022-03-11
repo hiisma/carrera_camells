@@ -29,8 +29,19 @@ public class Pista {
     public Pista(final Carrera c, final double mida){
         pantalla = c;
         camells = new ArrayList<Camell>();
-        
-        
+        liniaFinal = mida;
     }
-
+    // Afageix un camell a la pista
+    public final void afegirCamell(final Camell Pau) {
+        if (Pau != null) {
+            Pau.setPosicio(PosicioInicial,(camells.size() * separacio) + PosicioInicial);
+            camells.add(Pau);
+            pantalla.add(Pau.getImatge());
+        }
+    }
+    // Comença la carrera
+    public static void iniciaCarrera() {
+        double camellMésRapid = 0f;
+        pantalla.setSize((int) liniaFinal + PosicioInicial * 2,)
+    }
 }
