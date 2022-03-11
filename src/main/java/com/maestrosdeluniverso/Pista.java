@@ -51,7 +51,6 @@ public class Pista {
     public Pista(final Carrera c, final double mida){
         pantalla = c;
         camells = new ArrayList<Camell>();
-        
     }
 
 }
