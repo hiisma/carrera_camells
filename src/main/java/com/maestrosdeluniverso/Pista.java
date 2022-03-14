@@ -1,69 +1,24 @@
-package com.maestrosdeluniverso;
-
-import java.awt.Color;
-import java.util.ArrayList;
-
-import acm.graphics.GImage;
-import acm.graphics.GLabel;
-import acm.graphics.GLine;
-
-/**
- * Defineix la pista de la carrera.
+package com.maestrosdeluniverso;/*
+ * File: Checkerboard.java
+ * -----------------------
+ * This program draws a checkerboard.  The dimensions of the
+ * checkerboard is specified by the constants NROWS and
+ * NCOLUMNS, and the size of the squares is chosen so
+ * that the checkerboard fills the available vertical space.
  */
-public class Pista {
-    /**
-     * Posició de la pantalla on començarà la carrera.
-     */
-    static final int PosicioInicial = 10;
-    /**
-     * Separació entre camells.
-     */
-    static final int separacio = 70;
-    /**
-     * Temps per començar la carrera.
-     */
-    static final int tempsInici = 2000;
-    /**
-     * Temps d'espera entre passades.
-     */
-    static final int tempsPausa = 80;
-    /**
-     * Lloc en el que s'ha de pintar.
-     */
-    private Carrera pantalla = null;
-    /**
-     * Camells que participen en la carrera.
-     */
-    private ArrayList<Camell> camells = null;
-    /**
-     * Lloc en el que està la línia d'arribada de la pista.
-     */
-    private double liniaFinal = 0;
-    /**
-     * Estrella que segueix el que va primer.
-     */
-    private GImage estrella = null;
-    /**
-     * Crear una pista de la mida especificada
-     * @param c carrera.
-     * @param mida mida de la pista.
-     */
-    public Pista(final Carrera c, final double mida){
-        pantalla = c;
-        camells = new ArrayList<Camell>();
-        liniaFinal = mida;
-    }
-    // Afageix un camell a la pista
-    public final void afegirCamell(final Camell Pau) {
-        if (Pau != null) {
-            Pau.setPosicio(PosicioInicial,(camells.size() * separacio) + PosicioInicial);
-            camells.add(Pau);
-            pantalla.add(Pau.getImatge());
-        }
-    }
-    // Comença la carrera
-    public static void iniciaCarrera() {
-        double camellMésRapid = 0f;
-        pantalla.setSize((int) liniaFinal + PosicioInicial * 2,)
+
+
+import acm.program.*;
+
+public class App extends GraphicsProgram {
+
+
+
+    /* Standard Java entry point */
+    /* This method can be eliminated in most Java environments */
+    public static void main(String[] args) {
+
+        new HelloGraphics().start(args);
+
     }
 }

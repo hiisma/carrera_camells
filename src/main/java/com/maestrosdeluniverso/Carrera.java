@@ -1,5 +1,7 @@
 package com.maestrosdeluniverso;
 
+import acm.graphics.GLabel;
+
 public class Carrera {
     
     private int Torn;
@@ -33,5 +35,8 @@ public class Carrera {
         
     }
     // array camellos posicion +500 add guanyadors
+
+    public void add(Object imatge) {
+    }
 
 }

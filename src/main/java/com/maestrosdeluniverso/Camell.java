@@ -2,6 +2,8 @@ package com.maestrosdeluniverso;
 
 import java.util.Random;
 
+import acm.graphics.GImage;
+
 /**
  * Classe camell que permet manejar
  * el moviment.
@@ -85,13 +87,5 @@ public class Camell {
      */
     public int getId() {
         return id;
-    }
-
-    /**
-     * Retorna la posició del camell.
-     * @return
-     */
-    public int getPosicio() {
-        return posicio;
     }
 }
