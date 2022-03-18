@@ -61,7 +61,10 @@ public class Camell {
         this.id = id;
         this.sprite = sprite;
         this.sprite.setLocation(x, y);
+<<<<<<< HEAD
         add(sprite, x, y);
+=======
+>>>>>>> b80d9a7a1dd8731641d648645963f0436b2f87ca
         r = new Random();
     }
 
