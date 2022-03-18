@@ -61,6 +61,7 @@ public class Camell extends GraphicsProgram{
         this.id = id;
         this.sprite = sprite;
         this.sprite.setLocation(x, y);
+        add(sprite);
         r = new Random();
     }
 
@@ -85,13 +86,14 @@ public class Camell extends GraphicsProgram{
         // 1 i 15, abans era entre 0 i 14. 
         int mov = r.nextInt(DESPL_MAXIM) + 1;
         posicio+=mov;
+        actualitzarPosicioImatge();
         return mov;
     }
 
     /**
      * Actualitza la posició de la imatge.
      */
-    public void actualitzarPosicioImatge() {
+    private void actualitzarPosicioImatge() {
         sprite.setLocation(posicio, sprite.getY());
     }
 
