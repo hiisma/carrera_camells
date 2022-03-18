@@ -37,7 +37,6 @@ public class Carrera {
         this.Torn = torn;
     }
 
-    // TODO : cambiar void por clase Camell
     /**
      * Mètode per solucionar el problema de que hi hagin 2 o mès guanyadors de la
      * cursa
