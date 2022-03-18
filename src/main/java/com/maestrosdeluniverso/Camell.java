@@ -1,5 +1,7 @@
 package com.maestrosdeluniverso;
 
+import acm.graphics.*;
+import acm.program.*;
 import java.util.Random;
 
 import acm.graphics.GImage;
@@ -9,6 +11,7 @@ import acm.graphics.GImage;
  * el moviment.
  */
 public class Camell {
+    private GImage sprite;
     private int posicio;
     private int id;
     private Random r;
@@ -48,6 +51,22 @@ public class Camell {
     }
 
     /**
+     * Constructor amb identifiació,
+     * posició i imatge.
+     * També genera la llavor de Random.
+     * @param posicio
+     * @param id
+     * @param sprite
+     */
+    Camell(int posicio, int id, GImage sprite, int x, int y) {
+        this.posicio = posicio;
+        this.id = id;
+        this.sprite = sprite;
+        this.sprite.setLocation(x, y);
+        r = new Random();
+    }
+
+    /**
      * Constructor amb identifiació, la posició
      * s'inicialitza a 0.
      * També genera la llavor de Random.
@@ -60,7 +79,7 @@ public class Camell {
     /**
      * Genera de manera aleatoria un moviment
      * entre 1 i DESPL_MAXIM i modifica la
-     * posició.
+     * posició. (no canvia la posició de la imatge)
      * @return el moviment realitzat.
      */
     public int generarMoviment() {
@@ -69,6 +88,13 @@ public class Camell {
         int mov = r.nextInt(DESPL_MAXIM) + 1;
         posicio+=mov;
         return mov;
+    }
+
+    /**
+     * Actualitza la posició de la imatge.
+     */
+    public void actualitzarPosicioImatge() {
+        sprite.setLocation(posicio, sprite.getY());
     }
 
     /**
@@ -87,5 +113,9 @@ public class Camell {
      */
     public int getId() {
         return id;
+    }
+
+    public int getPosicio() {
+        return posicio;
     }
 }
