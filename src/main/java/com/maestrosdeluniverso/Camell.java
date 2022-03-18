@@ -1,6 +1,7 @@
 package com.maestrosdeluniverso;
 
 import acm.graphics.*;
+import acm.program.*;
 import java.util.Random;
 
 /**
