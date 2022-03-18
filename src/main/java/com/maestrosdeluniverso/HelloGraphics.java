@@ -10,9 +10,9 @@ import java.util.random.*;
 public class HelloGraphics extends GraphicsProgram {
     public void run() {
 
-        GImage fons = new GImage("C:\\fons2.jpg");
+        GImage fons = new GImage(System.getProperty("user.dir") + "\\src\\main\\resources\\img\\fons2.jpg");
         add(fons, 0, 0);
-        GImage camellImatge = new GImage("C:\\2893172.png");
+        GImage camellImatge = new GImage(System.getProperty("user.dir") + "\\src\\main\\resources\\img\\camell.png");
 
         ArrayList<Camell> camells = new ArrayList<Camell>(8);
 
@@ -26,20 +26,20 @@ public class HelloGraphics extends GraphicsProgram {
 
         ArrayList<Camell> Array700 = new ArrayList<Camell>();
         while (true) {
-            Mapa.setTorn(Mapa.getTorn()+1);
+            Mapa.setTorn(Mapa.getTorn() + 1);
             for (Camell i : camells) {
                 i.generarMoviment();
 
-                if (i.getX() >= 700) {
+                if (i.getPosicio() >= 700) {
                     Array700.add(i);
                 }
 
-                if (Array700.size() == 1) {
-                    Mapa.setGuanyador(Array700.get(0).getId());
-                } else if (Array700.size() >= 2) {
-                    Mapa.Desempat(Array700);
-                }
+            }
 
+            if (Array700.size() == 1) {
+                Mapa.setGuanyador(Array700.get(0).getId());
+            } else if (Array700.size() >= 2) {
+                Mapa.Desempat(Array700);
             }
 
             pause(90);
