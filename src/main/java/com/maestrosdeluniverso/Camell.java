@@ -10,7 +10,7 @@ import acm.graphics.GImage;
  * Classe camell que permet manejar
  * el moviment.
  */
-public class Camell {
+public class Camell extends GraphicsProgram{
     private GImage sprite;
     private int posicio;
     private int id;
@@ -87,13 +87,14 @@ public class Camell {
         // 1 i 15, abans era entre 0 i 14. 
         int mov = r.nextInt(DESPL_MAXIM) + 1;
         posicio+=mov;
+        actualitzarPosicioImatge();
         return mov;
     }
 
     /**
      * Actualitza la posició de la imatge.
      */
-    public void actualitzarPosicioImatge() {
+    private void actualitzarPosicioImatge() {
         sprite.setLocation(posicio, sprite.getY());
     }
 
