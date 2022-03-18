@@ -8,7 +8,7 @@ import java.util.Random;
  * Classe camell que permet manejar
  * el moviment.
  */
-public class Camell extends GraphicsProgram{
+public class Camell extends GraphicsProgram {
     private GImage sprite;
     private int posicio;
     private int id;
