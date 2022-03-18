@@ -3,20 +3,20 @@ package com.maestrosdeluniverso;
 public class Carrera {
     
     private int Torn;
-    private String Guanyador;
+    private int Guanyador;
 
     /** */
     public Carrera(){
 
         this.setTorn(0);
-        this.setGuanyador("No ha acabat la carrera");
+        this.setGuanyador(999);
 
     }
 
-    public String getGuanyador() {
+    public int getGuanyador() {
         return Guanyador;
     }
-    public void setGuanyador(String guanyador) {
+    public void setGuanyador(int guanyador) {
         this.Guanyador = guanyador;
     }
 
