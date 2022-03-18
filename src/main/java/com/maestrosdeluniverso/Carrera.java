@@ -25,7 +25,6 @@ public class Carrera {
     public int getGuanyador() {
         return Guanyador;
     }
-
     public void setGuanyador(int guanyador) {
         this.Guanyador = guanyador;
     }
@@ -81,6 +80,9 @@ public class Carrera {
         return guanyadors;
 
 
+    }
+
+    public void add(Object imatge) {
     }
 
 }

@@ -19,11 +19,29 @@ package com.maestrosdeluniverso;
  //      - Guanyador x
  //         - Desempat x
  //      - Algo más?
+ 
+ 
+ /*
+ * File: Checkerboard.java
+ * -----------------------
+ * This program draws a checkerboard.  The dimensions of the
+ * checkerboard is specified by the constants NROWS and
+ * NCOLUMNS, and the size of the squares is chosen so
+ * that the checkerboard fills the available vertical space.
+ */
 
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+
+import acm.program.*;
+
+public class App extends GraphicsProgram {
+
+
+
+    /* Standard Java entry point */
+    /* This method can be eliminated in most Java environments */
+    public static void main(String[] args) {
+
+        new HelloGraphics().start(args);
+
     }
 }
