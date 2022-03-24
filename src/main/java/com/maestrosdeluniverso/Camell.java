@@ -20,6 +20,9 @@ public class Camell extends GraphicsProgram {
      */
     public static final int DESPL_MAXIM = 15;
 
+    public static final int WIDE_SPRITE = 50; 
+    public static final int HEIGHT_SPRITE = 50;
+
     // Constructors
     /**
      * Constructor per defecte
@@ -56,12 +59,12 @@ public class Camell extends GraphicsProgram {
      * @param id
      * @param sprite
      */
-    Camell(int posicio, int id, GImage sprite, int x, int y) {
+    Camell(int posicio, int id, String sprite, int x, int y) {
         this.posicio = posicio;
         this.id = id;
-        this.sprite = sprite;
+        this.sprite = new GImage(sprite);
+        this.sprite.setSize(WIDE_SPRITE, HEIGHT_SPRITE);
         this.sprite.setLocation(x, y);
-        add(sprite);
         r = new Random();
     }
 
@@ -121,5 +124,14 @@ public class Camell extends GraphicsProgram {
      */
     public int getPosicio() {
         return posicio;
+    }
+
+    /**
+     * Retorna l'objecte GImage que 
+     * conté l'imatge del camell.
+     * @return
+     */
+    public GImage getSprite() {
+        return sprite;
     }
 }
