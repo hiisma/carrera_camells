@@ -2,6 +2,8 @@ package com.maestrosdeluniverso;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 public class CarreraTest {
@@ -27,13 +29,38 @@ public class CarreraTest {
 
         Carrera map = new Carrera();
 
-        Camell[] Camells = new Camell[3];
+        ArrayList<Camell> Camells = new ArrayList<Camell>();
 
-        Camells[0]=A;
-        Camells[1]=B;
-        Camells[2]=C;
+        Camells.add(A);
+        Camells.add(B);
+        Camells.add(C);
 
-        assertEquals(1, map.Desempat(Camells).getId());
+        ArrayList<Camell> esperat = new ArrayList<Camell>();
+        esperat.add(A);
+        
+        assertArrayEquals(esperat.toArray(), map.Desempat(Camells).toArray());
+
+    }
+
+    @Test
+    public void desempatePuntosIguales(){
+        Camell A = new Camell(510,1);
+        Camell B = new Camell(510,2);
+        Camell C = new Camell(480,3);
+
+        Carrera map = new Carrera();
+
+        ArrayList<Camell> Camells = new ArrayList<Camell>();
+
+        Camells.add(A);
+        Camells.add(B);
+        Camells.add(C);
+
+        ArrayList<Camell> esperat = new ArrayList<Camell>();
+        esperat.add(A);
+        esperat.add(B);
+        
+        assertArrayEquals(esperat.toArray(), map.Desempat(Camells).toArray());
 
     }
 }

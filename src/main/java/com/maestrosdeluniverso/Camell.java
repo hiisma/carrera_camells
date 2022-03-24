@@ -1,18 +1,19 @@
 package com.maestrosdeluniverso;
 
-import acm.graphics.*;
 import acm.program.*;
 import java.util.Random;
+
+import acm.graphics.GImage;
 
 /**
  * Classe camell que permet manejar
  * el moviment.
  */
-public class Camell extends GraphicsProgram {
-    private GImage sprite;
-    private int posicio;
-    private int id;
-    private Random r;
+public class Camell extends GraphicsProgram{
+    protected GImage sprite;
+    protected int posicio;
+    protected int id;
+    protected Random r;
 
     // Constants.
     /**
@@ -96,7 +97,7 @@ public class Camell extends GraphicsProgram {
     /**
      * Actualitza la posició de la imatge.
      */
-    private void actualitzarPosicioImatge() {
+    protected void actualitzarPosicioImatge() {
         sprite.setLocation(posicio, sprite.getY());
     }
 
@@ -118,10 +119,6 @@ public class Camell extends GraphicsProgram {
         return id;
     }
 
-    /**
-     * Retorna la posició del camell.
-     * @return
-     */
     public int getPosicio() {
         return posicio;
     }

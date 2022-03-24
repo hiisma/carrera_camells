@@ -1,16 +1,12 @@
 package com.maestrosdeluniverso;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import acm.graphics.*;
 import acm.program.*;
-import java.util.random.*;
 
 public class HelloGraphics extends GraphicsProgram {
     public void runTemp() {
-        GImage camellImatge = new GImage(System.getProperty("user.dir") + "\\src\\main\\resources\\img\\camell.png");
-
         ArrayList<Camell> camells = new ArrayList<Camell>(8);
 
         // for (int i = 0; i < camells.size(); i++) {
@@ -64,8 +60,11 @@ public class HelloGraphics extends GraphicsProgram {
         add(fons, 0, 0);
     }
 
+    /**
+     * Inicialitza l'arrayList de camells
+     * 
+     */
     public void inicialitzarCamells() {
-        imatge_camell = new GImage(RUTA_IMATGE_CAMELL);
         camells = new ArrayList<Camell>(NOMBRE_DE_CAMELLS);
 
         for (int i = 0; i < NOMBRE_DE_CAMELLS; i++) {
@@ -84,7 +83,6 @@ public class HelloGraphics extends GraphicsProgram {
 
     // VARIABLES
     private GImage fons;
-    private GImage imatge_camell;
 
     private ArrayList<Camell> camells;
 
