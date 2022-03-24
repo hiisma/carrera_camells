@@ -11,10 +11,10 @@ import acm.graphics.GImage;
  * el moviment.
  */
 public class Camell extends GraphicsProgram{
-    private GImage sprite;
-    private int posicio;
-    private int id;
-    private Random r;
+    protected GImage sprite;
+    protected int posicio;
+    protected int id;
+    protected Random r;
 
     // Constants.
     /**
@@ -94,7 +94,7 @@ public class Camell extends GraphicsProgram{
     /**
      * Actualitza la posició de la imatge.
      */
-    private void actualitzarPosicioImatge() {
+    protected void actualitzarPosicioImatge() {
         sprite.setLocation(posicio, sprite.getY());
     }
 
