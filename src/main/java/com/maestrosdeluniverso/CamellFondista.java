@@ -2,16 +2,16 @@ package com.maestrosdeluniverso;
 
 import acm.graphics.GImage;
 
-public class CamellRapid extends Camell {
+public class CamellFondista extends Camell {
 
-    public CamellRapid(int posicio, int id, GImage sprite, int x, int y) {
+    public CamellFondista(int posicio, int id, GImage sprite, int x, int y) {
         super(posicio, id, sprite, x, y);
     }
 
     /**
      * Desplaçament màxim que pot realitzar el camell.
      */
-    public static final int DESPL_MAXIM = 15;
+    public static final int DESPL_MAXIM = 10;
 
     /**
      * Genera de manera aleatoria un moviment
@@ -24,16 +24,13 @@ public class CamellRapid extends Camell {
      */
     public int generarMoviment() {
         // Afegim + 1 per que els numeros estiguin entre
-        // 1 i 15, abans era entre 0 i 14.
+        // 1 i 10, i no entre 0 i 9.
         int mov = r.nextInt(DESPL_MAXIM) + 1;
-        if (mov != DESPL_MAXIM) {
+        if (mov >= 5 || mov <= 10) {
             posicio += mov;
             actualitzarPosicioImatge();
             return mov;
-        } else {
-            posicio += mov * 2;
-            actualitzarPosicioImatge();
-            return mov;
         }
+        return generarMoviment();
     }
 }
