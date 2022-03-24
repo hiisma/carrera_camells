@@ -24,22 +24,22 @@ public class HelloGraphics extends GraphicsProgram {
 
         fons.setSize(754, 470);
 
-        ArrayList<Camell> Array700 = new ArrayList<Camell>();
+        ArrayList<Camell> arrayGuanyadors = new ArrayList<Camell>();
         while (true) {
             Mapa.setTorn(Mapa.getTorn() + 1);
             for (Camell i : camells) {
                 i.generarMoviment();
 
                 if (i.getPosicio() >= 700) {
-                    Array700.add(i);
+                    arrayGuanyadors.add(i);
                 }
 
             }
 
-            if (Array700.size() == 1) {
-                Mapa.setGuanyador(Array700.get(0).getId());
-            } else if (Array700.size() >= 2) {
-                Mapa.Desempat(Array700);
+            if (arrayGuanyadors.size() == 1) {
+                Mapa.setGuanyador(arrayGuanyadors.get(0).getId());
+            } else if (arrayGuanyadors.size() >= 2) {
+                Mapa.Desempat(arrayGuanyadors);
             }
 
             pause(90);

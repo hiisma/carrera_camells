@@ -10,7 +10,7 @@ package com.maestrosdeluniverso;/*
 
 import acm.program.*;
 
-public class App extends GraphicsProgram {
+public class App {
 
 
 
@@ -18,7 +18,7 @@ public class App extends GraphicsProgram {
     /* This method can be eliminated in most Java environments */
     public static void main(String[] args) {
 
-        new HelloGraphics().start(args);
+        new HelloGraphics().start();
 
     }
 }
