@@ -13,9 +13,9 @@ public class HelloGraphics extends GraphicsProgram {
 
         ArrayList<Camell> camells = new ArrayList<Camell>(8);
 
-        for (int i = 0; i < camells.size(); i++) {
-            camells.add(new Camell(0, i, camellImatge, 0, 10 + i * 60));
-        }
+        // for (int i = 0; i < camells.size(); i++) {
+        //     camells.add(new Camell(0, i, camellImatge, 0, 10 + i * 60));
+        // }
 
         Carrera Mapa = new Carrera();
 
@@ -56,6 +56,7 @@ public class HelloGraphics extends GraphicsProgram {
 
     public void run() {
         inicialitzarFons();
+        inicialitzarCamells();
     }
 
     public void inicialitzarFons() {
@@ -65,19 +66,26 @@ public class HelloGraphics extends GraphicsProgram {
 
     public void inicialitzarCamells() {
         imatge_camell = new GImage(RUTA_IMATGE_CAMELL);
+        camells = new ArrayList<Camell>(NOMBRE_DE_CAMELLS);
+
+        for (int i = 0; i < NOMBRE_DE_CAMELLS; i++) {
+            Camell camell = new Camell(0, i, RUTA_IMATGE_CAMELL, 0, 10 + i * 60);
+            camells.add(camell);
+            add(camells.get(i).getSprite());
+        }
     }
 
     // CONSTANTS
     private static final String RUTA_FONS_APP = System.getProperty("user.dir")
             + "\\src\\main\\resources\\img\\fons2.jpg";
     private static final String RUTA_IMATGE_CAMELL = System.getProperty("user.dir")
-            + "\\src\\main\\resources\\img\\fons2.jpg";
+            + "\\src\\main\\resources\\img\\camell.png";
+    private static final int NOMBRE_DE_CAMELLS = 8;
 
+    // VARIABLES
     private GImage fons;
     private GImage imatge_camell;
 
     private ArrayList<Camell> camells;
-
-    // VARIABLES
 
 }
