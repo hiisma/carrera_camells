@@ -1,15 +1,15 @@
 package com.maestrosdeluniverso;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+import java.awt.Dimension;
 
 import acm.graphics.*;
 import acm.program.*;
 
 public class HelloGraphics extends GraphicsProgram {
     public void run() {
-        this.resize(AMPLADA_FINESTRA, ALTURA_FINESTRA); // Posa la mida de la finestra correcta.
+        this.resize(MIDA_FINESTRA); // Posa la mida de la finestra correcta.
         inicialitzarFons();
         inicialitzarCamells();
         iniciCarrera();
@@ -68,6 +68,14 @@ public class HelloGraphics extends GraphicsProgram {
         return false;
     }
 
+    /**
+     * ES NECESSARI QUE ABANS D'EXECUTAR LA FUNCIÓ
+     * ES SÀPIGA QUE COM A MÍNIM HA ARRIBAT UN CAMELL
+     * A LA LÍNIA DE META.
+     * Busca el camell que ha arribat a la meta
+     * i que ha pasat a més distància.
+     * @return el camell que ha guanyat.
+     */
     public Camell buscaGuanyador() {
         // Es crea un array de la mida de la quantitat de camells que
         // participan, ja que es el nombre màxim de camells que poden
@@ -88,6 +96,9 @@ public class HelloGraphics extends GraphicsProgram {
         return guanyadors.get(guanyadors.size() - 1);
     }
 
+    /**
+     * Executa la lògica de la carrera.
+     */
     public void iniciCarrera() {
         while(true) {
             // Pausa per evitar que el programa vagi massa ràpid.
@@ -108,11 +119,11 @@ public class HelloGraphics extends GraphicsProgram {
             + "\\src\\main\\resources\\img\\fons2.jpg";
     private static final String RUTA_IMATGE_CAMELL = System.getProperty("user.dir")
             + "\\src\\main\\resources\\img\\camell.png";
-    private static final int NOMBRE_DE_CAMELLS = 8;
-    private static final int AMPLADA_FINESTRA = 1280;
-    private static final int ALTURA_FINESTRA = 550;
+    private static final int NOMBRE_DE_CAMELLS = 8;     //Els camells que participaran.
     private static final int TEMPS_ENTRE_FRAMES = 100;  //En milisegons.
-    private static final int DISTANCIA_META = 1200;
+    private static final int DISTANCIA_META = 1200;     //En pixels.
+
+    private static final Dimension MIDA_FINESTRA = new Dimension(1280,550);
     
 
     // VARIABLES
