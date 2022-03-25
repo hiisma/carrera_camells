@@ -9,6 +9,7 @@ import acm.graphics.*;
 import acm.program.*;
 
 public class HelloGraphics extends GraphicsProgram {
+    /**Funció principal del programa */
     public void run() {
         this.resize(MIDA_FINESTRA); // Posa la mida de la finestra correcta.
         inicialitzarFons();
@@ -19,7 +20,7 @@ public class HelloGraphics extends GraphicsProgram {
     /**
      * Afeigeix el fons de l'aplicació.
      */
-    public void inicialitzarFons() {
+    private void inicialitzarFons() {
         fons = new GImage(RUTA_FONS_APP);
         add(fons, 0, -25);
     }
@@ -29,7 +30,7 @@ public class HelloGraphics extends GraphicsProgram {
      * i l'emplena amb tants camells com
      * digui NOMBRE_DE_CAMELLS
      */
-    public void inicialitzarCamells() {
+    private void inicialitzarCamells() {
         camells = new ArrayList<Camell>(NOMBRE_DE_CAMELLS);
 
         camells.add(new Camell(0, 1, RUTA_IMATGE_CAMELL, 0, 10 + 0 * 60));
@@ -49,7 +50,7 @@ public class HelloGraphics extends GraphicsProgram {
     /**
      * S'encarrega d'administrar el moviment de tots els camells.
      */
-    public void generarMovimentCamells() {
+    private void generarMovimentCamells() {
         for (Camell camell : camells) {
             camell.generarMoviment();
         }
@@ -61,7 +62,7 @@ public class HelloGraphics extends GraphicsProgram {
      * @return Cert si algun camell està a un a posicó
      * p >= DISTANCIA_META
      */
-    public boolean algunCamellHaArribat() {
+    private boolean algunCamellHaArribat() {
         for (Camell camell : camells) {
             if (camell.getPosicio() >= DISTANCIA_META)
                 return true;
@@ -116,7 +117,11 @@ public class HelloGraphics extends GraphicsProgram {
         remove(num);
     }
     
-    public void mostrarTextGuanyador(int id) {
+    /**
+     * Mostra per pantalla un text que indica el guanyador.
+     * @param id el numero del guanyador.
+     */
+    private void mostrarTextGuanyador(int id) {
         String text = "Ha guanyat el camell número: " + Integer.toString(id);
         GLabel label = new GLabel(text);
         label.setFont("monospace-30");
@@ -129,7 +134,7 @@ public class HelloGraphics extends GraphicsProgram {
     /**
      * Executa la lògica de la carrera.
      */
-    public void iniciCarrera() {
+    private void iniciCarrera() {
         compteEnrere();
         while(true) {
             // Pausa per evitar que el programa vagi massa ràpid.
