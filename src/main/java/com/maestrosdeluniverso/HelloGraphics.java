@@ -73,11 +73,24 @@ public class HelloGraphics extends GraphicsProgram {
     public void inicialitzarCamells() {
         camells = new ArrayList<Camell>(NOMBRE_DE_CAMELLS);
 
-        for (int i = 0; i < NOMBRE_DE_CAMELLS; i++) {
-            Camell camell = new Camell(0, i, RUTA_IMATGE_CAMELL, 0, 10 + i * 60);
-            camells.add(camell);
-            add(camells.get(i).getSprite());
+        camells.add(new Camell(0, 0, RUTA_IMATGE_CAMELL, 0, 10 + 0 * 60));
+        camells.add(new CamellAntisenar(0, 1, RUTA_IMATGE_CAMELL, 0, 10 + 1 * 60));
+        camells.add(new CamellFlipat(0, 2, RUTA_IMATGE_CAMELL, 0, 10 + 2 * 60));
+        camells.add(new CamellFondista(0, 3, RUTA_IMATGE_CAMELL, 0, 10 + 3 * 60));
+        camells.add(new CamellRapid(0, 4, RUTA_IMATGE_CAMELL, 0, 10 + 4 * 60));
+        camells.add(new CamellFlipat(0, 5, RUTA_IMATGE_CAMELL, 0, 10 + 5 * 60));
+        camells.add(new Camell(0, 6, RUTA_IMATGE_CAMELL, 0, 10 + 6 * 60));
+        camells.add(new CamellRapid(0, 7, RUTA_IMATGE_CAMELL, 0, 10 + 7 * 60));
+        
+        for (Camell camell : camells) {
+            add(camell.getSprite());
         }
+
+        // for (int i = 0; i < NOMBRE_DE_CAMELLS; i++) {
+        //     Camell camell = new Camell(0, i, RUTA_IMATGE_CAMELL, 0, 10 + i * 60);
+        //     camells.add(camell);
+        //     add(camells.get(i).getSprite());
+        // }
     }
 
     /**
@@ -89,9 +102,15 @@ public class HelloGraphics extends GraphicsProgram {
         }
     }
 
+    /**
+     * Detecta si algun camell ha arribat al llindar
+     * per guanyar la carrera.
+     * @return Cert si algun camell està a un a posicó
+     * p >= DISTANCIA_META
+     */
     public boolean algunCamellHaArribat() {
         for (Camell camell : camells) {
-            if (camell.getPosicio() > DISTANCIA_META)
+            if (camell.getPosicio() >= DISTANCIA_META)
                 return true;
         }
         return false;
@@ -100,10 +119,14 @@ public class HelloGraphics extends GraphicsProgram {
     public void iniciCarrera() {
         carrera = new Carrera();
         while(true) {
+            // Pausa per evitar que el programa vagi massa ràpid.
             pause(TEMPS_ENTRE_FRAMES);
+
             generarMovimentCamells();
             if (algunCamellHaArribat()) {
                 pause(5000);
+                int id = new Carrera().Desempat(camells).getId();
+                System.out.println("Ha guanyat el camell num: " + id);
                 break;
             }
         }
