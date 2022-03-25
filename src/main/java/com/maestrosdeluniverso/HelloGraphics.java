@@ -2,6 +2,7 @@ package com.maestrosdeluniverso;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.awt.Color;
 import java.awt.Dimension;
 
 import acm.graphics.*;
@@ -31,14 +32,14 @@ public class HelloGraphics extends GraphicsProgram {
     public void inicialitzarCamells() {
         camells = new ArrayList<Camell>(NOMBRE_DE_CAMELLS);
 
-        camells.add(new Camell(0, 0, RUTA_IMATGE_CAMELL, 0, 10 + 0 * 60));
-        camells.add(new CamellAntisenar(0, 1, RUTA_IMATGE_CAMELL, 0, 10 + 1 * 60));
-        camells.add(new CamellFlipat(0, 2, RUTA_IMATGE_CAMELL, 0, 10 + 2 * 60));
-        camells.add(new CamellFondista(0, 3, RUTA_IMATGE_CAMELL, 0, 10 + 3 * 60));
-        camells.add(new CamellRapid(0, 4, RUTA_IMATGE_CAMELL, 0, 10 + 4 * 60));
-        camells.add(new CamellFlipat(0, 5, RUTA_IMATGE_CAMELL, 0, 10 + 5 * 60));
-        camells.add(new Camell(0, 6, RUTA_IMATGE_CAMELL, 0, 10 + 6 * 60));
-        camells.add(new CamellRapid(0, 7, RUTA_IMATGE_CAMELL, 0, 10 + 7 * 60));
+        camells.add(new Camell(0, 1, RUTA_IMATGE_CAMELL, 0, 10 + 0 * 60));
+        camells.add(new CamellAntisenar(0, 2, RUTA_IMATGE_CAMELL, 0, 10 + 1 * 60));
+        camells.add(new CamellFlipat(0, 3, RUTA_IMATGE_CAMELL, 0, 10 + 2 * 60));
+        camells.add(new CamellFondista(0, 4, RUTA_IMATGE_CAMELL, 0, 10 + 3 * 60));
+        camells.add(new CamellRapid(0, 5, RUTA_IMATGE_CAMELL, 0, 10 + 4 * 60));
+        camells.add(new CamellFlipat(0, 6, RUTA_IMATGE_CAMELL, 0, 10 + 5 * 60));
+        camells.add(new Camell(0, 7, RUTA_IMATGE_CAMELL, 0, 10 + 6 * 60));
+        camells.add(new CamellRapid(0, 8, RUTA_IMATGE_CAMELL, 0, 10 + 7 * 60));
         
         for (Camell camell : camells) {
             add(camell.getSprite());
@@ -95,20 +96,49 @@ public class HelloGraphics extends GraphicsProgram {
         
         return guanyadors.get(guanyadors.size() - 1);
     }
-
+    
+    /**
+     * Mostra per pantalla un compte enrere de 3 segons.
+     */
+    public void compteEnrere() {
+        GLabel num = new GLabel("3", 630, 100);
+        num.setColor(Color.WHITE);
+        num.setFont("monospace-30");
+        add(num);
+        pause(1000);
+        num.setLabel("2");
+        pause(1000);
+        num.setLabel("1");
+        pause(1000);
+        num.setLocation(580,100);
+        num.setLabel("En marxa");
+        pause(400);
+        remove(num);
+    }
+    
+    public void mostrarTextGuanyador(int id) {
+        String text = "Ha guanyat el camell número: " + Integer.toString(id);
+        GLabel label = new GLabel(text);
+        label.setFont("monospace-30");
+        label.setColor(Color.WHITE);
+        label.setLocation(500,100);
+        add(label);
+        pause(1000);
+    }
+    
     /**
      * Executa la lògica de la carrera.
      */
     public void iniciCarrera() {
+        compteEnrere();
         while(true) {
             // Pausa per evitar que el programa vagi massa ràpid.
             pause(TEMPS_ENTRE_FRAMES);
 
             generarMovimentCamells();
             if (algunCamellHaArribat()) {
-                pause(5000);
                 int id = buscaGuanyador().getId();
-                System.out.println("Ha guanyat el camell num: " + id);
+                mostrarTextGuanyador(id);
                 break;
             }
         }
