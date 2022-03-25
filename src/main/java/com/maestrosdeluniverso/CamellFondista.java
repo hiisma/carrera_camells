@@ -20,6 +20,7 @@ public class CamellFondista extends Camell {
      * 
      * @return el moviment realitzat.
      */
+    @Override
     public int generarMoviment() {
         // Afegim + 1 per que els numeros estiguin entre
         // 1 i 10, i no entre 0 i 9.
