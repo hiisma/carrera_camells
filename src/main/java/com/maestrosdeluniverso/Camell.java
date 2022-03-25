@@ -9,7 +9,7 @@ import acm.graphics.GImage;
  * Classe camell que permet manejar
  * el moviment.
  */
-public class Camell extends GraphicsProgram{
+public class Camell extends GraphicsProgram implements Comparable<Camell> {
     protected GImage sprite;
     protected int posicio;
     protected int id;
@@ -21,7 +21,7 @@ public class Camell extends GraphicsProgram{
      */
     public static final int DESPL_MAXIM = 15;
 
-    public static final int WIDE_SPRITE = 50; 
+    public static final int WIDE_SPRITE = 50;
     public static final int HEIGHT_SPRITE = 50;
 
     // Constructors
@@ -42,9 +42,10 @@ public class Camell extends GraphicsProgram{
      * Constructor amb identificació
      * i posició.
      * També genera la llavor de Random.
+     * 
      * @param posicio posició on es trobarà
-     * el camell
-     * @param id identificador del camell.
+     *                el camell
+     * @param id      identificador del camell.
      */
     Camell(int posicio, int id) {
         this.posicio = posicio;
@@ -56,6 +57,7 @@ public class Camell extends GraphicsProgram{
      * Constructor amb identifiació,
      * posició i imatge.
      * També genera la llavor de Random.
+     * 
      * @param posicio
      * @param id
      * @param sprite
@@ -73,23 +75,26 @@ public class Camell extends GraphicsProgram{
      * Constructor amb identifiació, la posició
      * s'inicialitza a 0.
      * També genera la llavor de Random.
+     * 
      * @param id Identificació del camell.
      */
     Camell(int id) {
         posicio = 0;
         this.id = id;
     }
+
     /**
      * Genera de manera aleatoria un moviment
      * entre 1 i DESPL_MAXIM i modifica la
      * posició. (no canvia la posició de la imatge)
+     * 
      * @return el moviment realitzat.
      */
     public int generarMoviment() {
         // Afegim + 1 per que els numeros estiguin entre
-        // 1 i 15, abans era entre 0 i 14. 
+        // 1 i 15, abans era entre 0 i 14.
         int mov = r.nextInt(DESPL_MAXIM) + 1;
-        posicio+=mov;
+        posicio += mov;
         actualitzarPosicioImatge();
         return mov;
     }
@@ -102,17 +107,19 @@ public class Camell extends GraphicsProgram{
     }
 
     /**
-     * Genera la possibilitat de 
+     * Genera la possibilitat de
      * moviment (50%).
+     * 
      * @return
      */
     public boolean potMoures() {
-        return (r.nextInt(2) == 1)?true:false;
+        return (r.nextInt(2) == 1) ? true : false;
     }
 
     // Getters
     /**
      * Retorna l'identificador del camell.
+     * 
      * @return
      */
     public int getId() {
@@ -124,11 +131,18 @@ public class Camell extends GraphicsProgram{
     }
 
     /**
-     * Retorna l'objecte GImage que 
+     * Retorna l'objecte GImage que
      * conté l'imatge del camell.
+     * 
      * @return
      */
     public GImage getSprite() {
         return sprite;
+    }
+
+    // Misc
+    @Override
+    public int compareTo(Camell c) {
+        return this.posicio - c.posicio;
     }
 }

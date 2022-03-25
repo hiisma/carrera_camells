@@ -1,55 +1,13 @@
 package com.maestrosdeluniverso;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import acm.graphics.*;
 import acm.program.*;
 
 public class HelloGraphics extends GraphicsProgram {
-    public void runTemp() {
-        ArrayList<Camell> camells = new ArrayList<Camell>(8);
-
-        // for (int i = 0; i < camells.size(); i++) {
-        //     camells.add(new Camell(0, i, camellImatge, 0, 10 + i * 60));
-        // }
-
-        Carrera Mapa = new Carrera();
-
-        fons.setSize(754, 470);
-
-        ArrayList<Camell> arrayGuanyadors = new ArrayList<Camell>();
-        while (true) {
-            Mapa.setTorn(Mapa.getTorn() + 1);
-            for (Camell i : camells) {
-                i.generarMoviment();
-
-                if (i.getPosicio() >= 700) {
-                    arrayGuanyadors.add(i);
-                }
-
-            }
-
-            if (arrayGuanyadors.size() == 1) {
-                Mapa.setGuanyador(arrayGuanyadors.get(0).getId());
-            } else if (arrayGuanyadors.size() >= 2) {
-                // Mapa.Desempat(arrayGuanyadors);
-            }
-
-            pause(90);
-        }
-
-        // System.out.println(ample);
-        // System.out.println(alt);
-        /*
-         * for (GImage i : totCamell) {
-         * i.setSize(50, 50);
-         * }
-         */
-
-        // int ample = (int)camell1.getWidth();
-        // int alt = (int)camell2.getHeight();
-    }
-
     public void run() {
         this.resize(AMPLADA_FINESTRA, ALTURA_FINESTRA); // Posa la mida de la finestra correcta.
         inicialitzarFons();
@@ -85,12 +43,6 @@ public class HelloGraphics extends GraphicsProgram {
         for (Camell camell : camells) {
             add(camell.getSprite());
         }
-
-        // for (int i = 0; i < NOMBRE_DE_CAMELLS; i++) {
-        //     Camell camell = new Camell(0, i, RUTA_IMATGE_CAMELL, 0, 10 + i * 60);
-        //     camells.add(camell);
-        //     add(camells.get(i).getSprite());
-        // }
     }
 
     /**
@@ -116,8 +68,27 @@ public class HelloGraphics extends GraphicsProgram {
         return false;
     }
 
+    public Camell buscaGuanyador() {
+        // Es crea un array de la mida de la quantitat de camells que
+        // participan, ja que es el nombre màxim de camells que poden
+        // arribar a la meta.
+        ArrayList<Camell> guanyadors = new ArrayList<>(NOMBRE_DE_CAMELLS);
+
+        // Guarda els camells que han arribat a la meta.
+        for (int i = 0; i < camells.size(); i++) {
+            Camell camellActual = camells.get(i);
+            if (camellActual.getPosicio() >= DISTANCIA_META) {
+                guanyadors.add(camellActual);
+            }
+        }
+
+        // Ordena els camells que estiguin a la pos
+        Collections.sort(guanyadors);
+        
+        return guanyadors.get(guanyadors.size() - 1);
+    }
+
     public void iniciCarrera() {
-        carrera = new Carrera();
         while(true) {
             // Pausa per evitar que el programa vagi massa ràpid.
             pause(TEMPS_ENTRE_FRAMES);
@@ -125,7 +96,7 @@ public class HelloGraphics extends GraphicsProgram {
             generarMovimentCamells();
             if (algunCamellHaArribat()) {
                 pause(5000);
-                int id = new Carrera().Desempat(camells).getId();
+                int id = buscaGuanyador().getId();
                 System.out.println("Ha guanyat el camell num: " + id);
                 break;
             }
@@ -147,5 +118,4 @@ public class HelloGraphics extends GraphicsProgram {
     // VARIABLES
     private GImage fons;
     private ArrayList<Camell> camells;
-    private Carrera carrera;
 }
